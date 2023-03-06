@@ -1,0 +1,31 @@
+.button {
+  @apply inline-block box-border pt-3 pb-2 px-5 cursor-pointer font-bold text-center 
+  border-none rounded-3xl text-base transition-all;
+}
+
+.primary {
+  @apply text-black  bg-green hover:bg-darkGreen;
+}
+
+.white {
+  @apply text-black bg-white;
+}
+
+.black {
+  @apply text-greenBG bg-black px-10;
+
+  &:hover {
+    @apply text-white bg-gray transition-all; //Improve this fragment
+  }
+}
+
+.base {
+  @apply font-primary;
+}
+.baseLogin {
+  @apply font-primary text-2xl;
+}
+
+.secondary {
+  @apply font-secondary text-xl px-12 py-3;
+}

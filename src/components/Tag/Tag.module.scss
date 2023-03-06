@@ -1,5 +1,5 @@
 .tag {
-  @apply inline-block box-border text-black mr-1 rounded-lg;
+  @apply inline-block box-border text-gray mr-1 rounded-lg;
 }
 .s {
   @apply py-1 px-2 text-xl leading-2;
@@ -12,4 +12,7 @@
 }
 .primary {
   @apply text-black font-bold;
+}
+.active {
+  @apply text-white;
 }

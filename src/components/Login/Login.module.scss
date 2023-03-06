@@ -1,0 +1,10 @@
+.container {
+  @apply flex flex-col items-center justify-center 
+  h-screen w-screen bg-greenBG gap-20;
+}
+
+.logo {
+  & img {
+    @apply h-screen-25vh;
+  }
+}

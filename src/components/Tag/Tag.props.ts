@@ -9,4 +9,5 @@ export interface TagProps
   size?: 's' | 'm';
   color?: 'gray' | 'primary';
   href?: string;
+  active?: 'active';
 }

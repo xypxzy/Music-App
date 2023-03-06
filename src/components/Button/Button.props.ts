@@ -3,9 +3,9 @@ import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
 export interface ButtonProps
   extends DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement //Чтобы свойство с обычных button'ов тоже работали, расширяем
+    HTMLButtonElement
   > {
   children: ReactNode;
-  appearance: 'primary' | 'ghost';
-  arrow?: 'right' | 'down' | 'none';
+  appearance: 'primary' | 'white' | 'black';
+  fonts: 'base' | 'secondary' | 'baseLogin';
 }

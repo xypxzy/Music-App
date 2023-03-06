@@ -22,8 +22,12 @@ module.exports = {
       black: '#101010',
       gray: '#525252',
       darkGreen: '#AAD01C',
+      greenBG: '#1db954',
     },
     extend: {
+      height: {
+        'screen-25vh': '25vh',
+      },
       lineHeight: {
         'extra-loose': '2.5',
         2: '12px',

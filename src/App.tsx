@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './App.module.scss';
-import { P } from './components/P/P';
-import { Tag } from './components/Tag/Tag';
+import { Login } from './components/Login/Login';
+import { useStateProvider } from './utils/StateProvider';
+import { reducerCases } from './utils/Constants';
+import Spotify from './components/Spotify';
 
 export default function App() {
-  return (
-    <div>
-      <Tag size='m'>lore</Tag>
-      <Tag size='s'>lore</Tag>
-      <P size='s'>lore</P>
-      <P size='m'>lore</P>
-      <P size='l'>lore</P>
-    </div>
-  );
+  const [{ token }, dispatch] = useStateProvider();
+  useEffect(() => {
+    // Takes token
+    const hash = window.location.hash;
+    console.log(hash);
+
+    if (hash) {
+      const token = hash.substring(1).split('&')[0].split('=')[1];
+      dispatch({ type: reducerCases.SET_TOKEN, token });
+    }
+  }, [token, dispatch]);
+
+  return <div>{token ? <Spotify /> : <Login />}</div>;
 }

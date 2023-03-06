@@ -8,6 +8,7 @@ export const Tag = ({
   children,
   color = 'gray',
   href,
+  active,
   className,
   ...props
 }: TagProps) => {
@@ -18,6 +19,7 @@ export const Tag = ({
         [styles.m]: size == 'm',
         [styles.gray]: color == 'gray',
         [styles.primary]: color == 'primary',
+        [styles.active]: active == 'active',
       })}
       {...props}
     >
