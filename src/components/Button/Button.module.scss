@@ -20,7 +20,7 @@
 }
 
 .base {
-  @apply font-primary;
+  @apply font-primary text-sm pt-2 pb-1 px-5;
 }
 .baseLogin {
   @apply font-primary text-2xl;

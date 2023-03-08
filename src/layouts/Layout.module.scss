@@ -1,0 +1,21 @@
+.wrapper {
+  @apply bg-black text-white px-12
+    grid grid-cols-layout grid-rows-layout min-h-screen gap-6 
+    grid-areas-slim md:grid-areas-wide;
+
+  .header {
+    @apply grid-in-header;
+  }
+  .sidebar {
+    @apply grid-in-sidebar;
+  }
+  .sidebar2 {
+    @apply grid-in-sidebar2;
+  }
+  .body {
+    @apply grid-in-body;
+  }
+  .footer {
+    @apply grid-in-footer;
+  }
+}

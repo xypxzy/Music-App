@@ -3,7 +3,7 @@ import styles from './App.module.scss';
 import { Login } from './components/Login/Login';
 import { useStateProvider } from './utils/StateProvider';
 import { reducerCases } from './utils/Constants';
-import Spotify from './components/Spotify';
+import { Layout } from './layouts/Layout';
 
 export default function App() {
   const [{ token }, dispatch] = useStateProvider();
@@ -18,5 +18,5 @@ export default function App() {
     }
   }, [token, dispatch]);
 
-  return <div>{token ? <Spotify /> : <Login />}</div>;
+  return <div>{token ? <Layout /> : <Login />}</div>;
 }

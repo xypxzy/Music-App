@@ -13,6 +13,7 @@ module.exports = {
       '2xl': '24px',
       '3xl': '28px',
       '4xl': '32px',
+      '5xl': '40px',
     },
 
     colors: {
@@ -33,7 +34,21 @@ module.exports = {
         2: '12px',
         3: '14px',
       },
+      gridTemplateColumns: {
+        layout: 'auto 130px minmax(320px, 1000px) minmax(200px, 300px) auto',
+      },
+      gridTemplateRows: {
+        layout: 'auto 1fr auto',
+      },
+      gridTemplateAreas: {
+        wide: [
+          '. header header header .',
+          '. sidebar body sidebar2 .',
+          'footer footer footer footer footer',
+        ],
+        slim: ['header', 'body', 'footer'],
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@savvywombat/tailwindcss-grid-areas')],
 };

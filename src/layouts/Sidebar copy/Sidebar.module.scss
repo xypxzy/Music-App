@@ -1,0 +1,12 @@
+.topLinks {
+  @apply h-full flex flex-col justify-start gap-5 pt-10;
+
+  & li {
+    @apply flex justify-start items-center gap-3
+    text-base font-medium font-secondary text-gray cursor-pointer;
+
+    &:hover {
+      @apply text-white ease-in-out duration-500;
+    }
+  }
+}
