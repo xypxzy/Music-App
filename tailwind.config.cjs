@@ -18,16 +18,23 @@ module.exports = {
 
     colors: {
       violet: '#D37FFF',
-      green: '#CCF04c',
       white: '#FFFFFF',
       black: '#101010',
       gray: '#525252',
+      darkGray: '#282828',
+      green: '#CCF04c',
       darkGreen: '#AAD01C',
       greenBG: '#1db954',
     },
     extend: {
       height: {
         'screen-25vh': '25vh',
+        'screen-55vh': '50vh',
+      },
+      width: {
+        'screen-25vw': '25vw',
+        'screen-40vw': '40vw',
+        'screen-50vw': '50vw',
       },
       lineHeight: {
         'extra-loose': '2.5',

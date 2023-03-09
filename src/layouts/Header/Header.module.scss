@@ -3,7 +3,24 @@
   .logo {
     @apply text-5xl font-semibold font-primary m-0 p-0;
   }
+  .search_bar {
+    @apply flex items-center gap-5 bg-darkGray p-2 rounded-full
+    px-5 w-screen-40vw;
+
+    & input {
+      @apply font-secondary border-none bg-darkGray w-full focus:outline-none;
+    }
+  }
   .subscription {
     @apply flex gap-3 items-center justify-between;
+    .avatar {
+      @apply flex items-center gap-2 text-xl 
+      font-secondary pr-3 pl-2 py-1 bg-darkGray
+      rounded-full cursor-pointer font-bold;
+
+      .avatarIcon {
+        @apply bg-gray text-4xl p-1.5 rounded-full;
+      }
+    }
   }
 }
