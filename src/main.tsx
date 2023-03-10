@@ -6,9 +6,7 @@ import { StateProvider } from './utils/StateProvider';
 import reducer, { initialState } from './utils/reducer';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <StateProvider initialState={initialState} reducer={reducer}>
-      <App />
-    </StateProvider>
-  </React.StrictMode>
+  <StateProvider initialState={initialState} reducer={reducer}>
+    <App />
+  </StateProvider>
 );

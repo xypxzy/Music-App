@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaSearch } from 'react-icons/fa';
 import { CgProfile } from 'react-icons/cg';
@@ -9,9 +9,12 @@ import { useStateProvider } from '../../utils/StateProvider';
 import { reducerCases } from '../../utils/Constants';
 
 import styles from './Header.module.scss';
+import { log } from 'console';
+import { Search } from '../../components/Search/Search';
 
 export const Header = ({ ...props }: HeaderProps) => {
   const [{ token, userInfo }, dispatch] = useStateProvider();
+  // const [searchStatus, setSearchStatus] = useState(false);
   useEffect(() => {
     const getUserInfo = async () => {
       const { data } = await axios.get('https://api.spotify.com/v1/me', {
@@ -21,7 +24,6 @@ export const Header = ({ ...props }: HeaderProps) => {
         },
       });
       const { id, display_name }: IUserInfo = data;
-      console.log(data);
 
       const userInfo = {
         userId: id,
@@ -32,14 +34,19 @@ export const Header = ({ ...props }: HeaderProps) => {
     };
     getUserInfo();
   }, [token, dispatch]);
+
+  // function isSearchStatus() {
+  //   //Problems: При первом кликании не срабатывает setSearchStatus
+  //   setSearchStatus(true);
+  //   const searchWindow = searchStatus;
+  //   dispatch({ type: reducerCases.SET_SEARCHWINDOW, searchWindow });
+  // }
+
   return (
     <div {...props}>
       <div className={styles.header}>
         <span className={styles.logo}>m.</span>
-        <span className={styles.search_bar}>
-          <FaSearch />
-          <input type='text' placeholder='Find a song or artist' />
-        </span>
+        <Search />
         <span className={styles.subscription}>
           <Button appearance='primary' fonts='base'>
             plus+

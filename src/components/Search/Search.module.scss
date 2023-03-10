@@ -1,0 +1,8 @@
+.search_bar {
+  @apply flex items-center gap-5 bg-darkGray p-2 rounded-full
+    px-5 w-screen-40vw;
+
+  & input {
+    @apply font-secondary border-none bg-darkGray w-full focus:outline-none;
+  }
+}
