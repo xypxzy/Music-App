@@ -11,10 +11,10 @@ import { reducerCases } from '../../utils/Constants';
 import styles from './Header.module.scss';
 import { log } from 'console';
 import { Search } from '../../components/Search/Search';
+import { Input } from '../../components/Input/Input';
 
 export const Header = ({ ...props }: HeaderProps) => {
   const [{ token, userInfo }, dispatch] = useStateProvider();
-  // const [searchStatus, setSearchStatus] = useState(false);
   useEffect(() => {
     const getUserInfo = async () => {
       const { data } = await axios.get('https://api.spotify.com/v1/me', {
@@ -46,7 +46,7 @@ export const Header = ({ ...props }: HeaderProps) => {
     <div {...props}>
       <div className={styles.header}>
         <span className={styles.logo}>m.</span>
-        <Search />
+        <Input />
         <span className={styles.subscription}>
           <Button appearance='primary' fonts='base'>
             plus+

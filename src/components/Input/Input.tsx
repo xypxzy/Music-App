@@ -16,9 +16,6 @@ export const Input = () => {
     });
   }
 
-  console.log(searchInputCommmit);
-  console.log(searchInput);
-
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchInput(e.target.value);
   }

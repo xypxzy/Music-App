@@ -11,15 +11,16 @@ import { useStateProvider } from '../utils/StateProvider';
 import { Search } from '../components/Search/Search';
 
 export function Layout(): JSX.Element {
-  const [{ searchWindow }] = useStateProvider();
+  const [{ searchInputCommmit }] = useStateProvider();
+  console.log(searchInputCommmit);
 
   return (
     <div className={styles.wrapper}>
-      <Header className={styles.header} />
-      {searchWindow ? (
+      {searchInputCommmit ? (
         <Search />
       ) : (
         <>
+          <Header className={styles.header} />
           <Sidebar className={styles.sidebar} />
           <Body className={styles.body} />
           <SidebarRight className={styles.sidebar2} />

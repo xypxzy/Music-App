@@ -4,9 +4,12 @@ import App from './App';
 import './index.css';
 import { StateProvider } from './utils/StateProvider';
 import reducer, { initialState } from './utils/reducer';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StateProvider initialState={initialState} reducer={reducer}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StateProvider>
 );
