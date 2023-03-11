@@ -18,8 +18,8 @@ export function Layout(): JSX.Element {
     <>
       {searchInputCommmit ? (
         <div className={styles.searchWindow}>
-          <Header className={styles.header} />
-          <Search className={styles.body} />
+          <Header />
+          <Search />
         </div>
       ) : (
         <div className={styles.wrapper}>

@@ -11,7 +11,6 @@ export interface ISearchInfo {
 
 interface ISearchItem {
   type: string;
-  images: IImageInfo[];
   id: string;
   name: string;
 }
@@ -20,17 +19,19 @@ export interface ISearchAlbum extends ISearchItem {
   album_type: string;
   release_date: string;
   total_tracks: number;
-
+  images: IImageInfo[];
   artists: IArtistInfo[];
 }
 
 export interface ISearchArtists extends ISearchItem {
   genres: string[];
+  images: IImageInfo[];
 }
 
 export interface ISearchTracks extends ISearchItem {
-  explicit: boolean;
+  href: string;
   artists: IArtistInfo[];
+  images: IImageInfo | undefined;
 }
 
 export interface IArtistInfo {

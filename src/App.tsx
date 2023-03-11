@@ -18,5 +18,5 @@ export default function App() {
     }
   }, [token, dispatch]);
 
-  return <div>{token ? <Layout /> : <Login />}</div>;
+  return <div className={styles.app}>{token ? <Layout /> : <Login />}</div>;
 }

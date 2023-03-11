@@ -1,0 +1,16 @@
+.albums {
+  @apply flex flex-wrap gap-5;
+
+  .albumItem {
+    @apply flex;
+    .imageItem {
+      @apply w-16 h-16 rounded-lg;
+    }
+    .albumInfo {
+      @apply text-xl;
+    }
+    .secondaryInfo {
+      @apply text-sm;
+    }
+  }
+}

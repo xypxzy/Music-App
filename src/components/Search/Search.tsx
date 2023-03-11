@@ -10,8 +10,10 @@ import {
 import styles from './Search.module.scss';
 import axios from 'axios';
 import { reducerCases } from '../../utils/Constants';
-import { AlbumsCards, TracksCards } from '../Cards/Cards';
 import { Input } from '../Input/Input';
+import { AlbumsCards } from '../Cards/AlbumCards/AlbumsCards';
+import { ArtistCards } from '../Cards/ArtistsCards/ArtistsCards';
+import { TracksCards } from '../Cards/TracksCards/TracksCards';
 
 export const Search = ({ ...props }: SearchProps) => {
   const [{ token, searchInputCommmit }, dispatch] = useStateProvider();
@@ -73,14 +75,14 @@ export const Search = ({ ...props }: SearchProps) => {
 
       dispatch({ type: reducerCases.SET_SEARCHARTISTSINFO, searchArtistsInfo });
       const searchTracksInfo = tracks.items.map(
-        ({ type, id, name, artists, images, explicit }: ISearchTracks) => {
+        ({ type, id, name, artists, images, href }: ISearchTracks) => {
           return {
             type,
             id,
             name,
             artists,
             images,
-            explicit,
+            href,
           };
         }
       );
@@ -92,7 +94,13 @@ export const Search = ({ ...props }: SearchProps) => {
   return (
     <div {...props}>
       <div className={styles.searchedItem}>
-        {searchInputCommmit && <AlbumsCards />}
+        {searchInputCommmit && (
+          <>
+            {/* <TracksCards /> */}
+            <AlbumsCards />
+            <ArtistCards />
+          </>
+        )}
       </div>
     </div>
   );

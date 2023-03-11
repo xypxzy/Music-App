@@ -1,0 +1,10 @@
+.tracksItem {
+  @apply flex items-center justify-start;
+
+  .imageItem {
+    @apply w-16 h-16 rounded-lg;
+  }
+  .tracksInfo {
+    @apply flex gap-10;
+  }
+}
