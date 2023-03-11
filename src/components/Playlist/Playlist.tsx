@@ -34,6 +34,8 @@ export const Playlists = ({ ...props }: PlaylistsProps) => {
       );
 
       const { items } = response.data;
+      console.log(items);
+
       const playlists = items.map(
         ({ name, id, description, images }: IPlaylistItem) => {
           return { name, id, description, images };
