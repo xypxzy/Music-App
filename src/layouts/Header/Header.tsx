@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FaSearch } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 import { CgProfile } from 'react-icons/cg';
 
-import { HeaderProps, IUserInfo } from './Header.props';
-import { Button } from '../../components/Button/Button';
 import { useStateProvider } from '../../utils/StateProvider';
 import { reducerCases } from '../../utils/Constants';
+import { HeaderProps, IUserInfo } from './Header.props';
+
+import { Button } from '../../components/Button/Button';
+import { Input } from '../../components/Input/Input';
 
 import styles from './Header.module.scss';
-import { log } from 'console';
-import { Search } from '../../components/Search/Search';
-import { Input } from '../../components/Input/Input';
 
 export const Header = ({ ...props }: HeaderProps) => {
   const [{ token, userInfo }, dispatch] = useStateProvider();
@@ -34,13 +32,6 @@ export const Header = ({ ...props }: HeaderProps) => {
     };
     getUserInfo();
   }, [token, dispatch]);
-
-  // function isSearchStatus() {
-  //   //Problems: При первом кликании не срабатывает setSearchStatus
-  //   setSearchStatus(true);
-  //   const searchWindow = searchStatus;
-  //   dispatch({ type: reducerCases.SET_SEARCHWINDOW, searchWindow });
-  // }
 
   return (
     <div {...props}>

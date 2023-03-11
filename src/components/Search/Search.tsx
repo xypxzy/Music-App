@@ -9,18 +9,12 @@ import {
 
 import styles from './Search.module.scss';
 import axios from 'axios';
-import { Header } from '../../layouts/Header/Header';
-import { FaSearch } from 'react-icons/fa';
 import { reducerCases } from '../../utils/Constants';
 import { AlbumsCards, TracksCards } from '../Cards/Cards';
 import { Input } from '../Input/Input';
 
 export const Search = ({ ...props }: SearchProps) => {
   const [{ token, searchInputCommmit }, dispatch] = useStateProvider();
-  const [searchInput, setSearchInput] = useState<string>('');
-  // const [searchInputCommmit, setSearchInputCommmit] = useState<string | null>(
-  //   null
-  // );
   const [searchStatus, setSearchStatus] = useState<boolean>(false);
 
   useEffect(() => {
@@ -95,37 +89,10 @@ export const Search = ({ ...props }: SearchProps) => {
     getSearchInfo();
   }, [token, dispatch, searchInputCommmit]);
 
-  //Search
-  // function search() {
-  //   console.log('Search for ' + searchInput);
-  //   setSearchInputCommmit(searchInput);
-  // }
-
-  // function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-  //   setSearchInput(e.target.value);
-  // }
-
   return (
     <div {...props}>
-      <div className={styles.searchInformation}>
-        {/* <span className={styles.search_bar}>
-          <FaSearch />
-          <input
-            type='text'
-            placeholder='Find a song or artist'
-            onKeyDown={(e) => {
-              if (e.key == 'Enter') {
-                search();
-                setSearchStatus(true);
-              }
-            }}
-            onChange={handleInputChange}
-          />
-        </span> */}
-        <Input />
-        <div className={styles.searchedItem}>
-          {searchInputCommmit && <AlbumsCards />}
-        </div>
+      <div className={styles.searchedItem}>
+        {searchInputCommmit && <AlbumsCards />}
       </div>
     </div>
   );

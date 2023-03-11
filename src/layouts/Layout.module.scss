@@ -1,7 +1,8 @@
 .wrapper {
   @apply bg-black text-white px-12
     grid grid-cols-layout grid-rows-layout min-h-screen gap-6 
-    grid-areas-slim md:grid-areas-wide;
+    grid-areas-slim 
+    md:grid-areas-wide;
 
   .header {
     @apply grid-in-header;
@@ -18,4 +19,9 @@
   .footer {
     @apply grid-in-footer;
   }
+}
+
+.searchWindow {
+  @apply bg-black text-white px-12 
+  flex flex-col justify-center gap-10;
 }
