@@ -15,6 +15,8 @@ export interface IState {
   searchTracksInfo: ISearchTracks[];
   searchArtistsInfo: ISearchArtists[];
   searchInputCommmit: string | null;
+  currentlyPlaying: string | null;
+  playerState: boolean;
 }
 export const initialState: IState = {
   token: null,
@@ -24,6 +26,8 @@ export const initialState: IState = {
   searchTracksInfo: [],
   searchArtistsInfo: [],
   searchInputCommmit: null,
+  currentlyPlaying: null,
+  playerState: false,
 };
 
 export type Action = {
@@ -31,6 +35,8 @@ export type Action = {
     | 'SET_TOKEN'
     | 'SET_PLAYLISTS'
     | 'SET_USER'
+    | 'SET_PLAYING'
+    | 'SET_PLAYER_STATE'
     | 'SET_SEARCHTRACKSINFO'
     | 'SET_SEARCHARTISTSINFO'
     | 'SET_SEARCHALBUMSINFO'
@@ -42,6 +48,8 @@ export type Action = {
   searchTracksInfo: ISearchTracks[];
   searchArtistsInfo: ISearchArtists[];
   searchInputCommmit: string;
+  currentlyPlaying: string;
+  playerState: boolean;
 };
 
 const reducer = (state: IState, action: Action) => {
@@ -60,6 +68,10 @@ const reducer = (state: IState, action: Action) => {
       return { ...state, searchArtistsInfo: action.searchArtistsInfo };
     case reducerCases.SET_SEARCHINPUTCOMMIT:
       return { ...state, searchInputCommmit: action.searchInputCommmit };
+    case reducerCases.SET_PLAYING:
+      return { ...state, currentlyPlaying: action.currentlyPlaying };
+    case reducerCases.SET_PLAYER_STATE:
+      return { ...state, playerState: action.playerState };
     default:
       return state;
   }

@@ -13,10 +13,6 @@ export const AlbumsCards = () => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [viewCard, setViewCard] = useState(cardFit);
   const [cardExtends, setCardExtends] = useState(false);
-  function handleActiveCard(index: number) {
-    setActiveCardIndex(index);
-  }
-
 
   function entendsCards() {
     console.log(`extends`);
@@ -63,7 +59,6 @@ export const AlbumsCards = () => {
                       className={`${styles.card} ${
                         activeCardIndex === i ? styles.active : ''
                       }`}
-                      onMouseEnter={() => handleActiveCard(i)}
                     >
                       <img
                         src={images[0].url}

@@ -1,0 +1,18 @@
+.track {
+  @apply text-base flex items-center 
+  h-20 gap-5;
+
+  .trackImage img {
+    @apply rounded-xl;
+  }
+  .trackInfo {
+    @apply text-base;
+
+    & h3 {
+      @apply text-white;
+    }
+    & h5 {
+      @apply text-cardGrayLight text-sm;
+    }
+  }
+}

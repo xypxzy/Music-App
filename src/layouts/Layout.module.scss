@@ -1,17 +1,17 @@
 .wrapper {
-  @apply text-white px-12
+  @apply text-white 
     grid grid-cols-layout grid-rows-layout min-h-screen gap-6 
     grid-areas-slim 
     md:grid-areas-wide;
 
   .header {
-    @apply grid-in-header;
+    @apply px-12 grid-in-header;
   }
   .sidebar {
-    @apply grid-in-sidebar;
+    @apply pl-12 grid-in-sidebar;
   }
   .sidebar2 {
-    @apply grid-in-sidebar2;
+    @apply pr-12 grid-in-sidebar2;
   }
   .body {
     @apply grid-in-body;

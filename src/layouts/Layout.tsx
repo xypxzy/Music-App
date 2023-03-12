@@ -26,6 +26,7 @@ export function Layout(): JSX.Element {
           <Sidebar className={styles.sidebar} />
           <Body className={styles.body} />
           <SidebarRight className={styles.sidebar2} />
+
           <Footer className={styles.footer} />
         </div>
       )}

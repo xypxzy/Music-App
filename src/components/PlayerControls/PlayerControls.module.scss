@@ -1,0 +1,17 @@
+.playerState {
+  @apply flex items-center gap-4;
+  .previous,
+  .next {
+    @apply text-3xl font-normal cursor-pointer
+     text-cardGrayLight  hover:text-white;
+  }
+
+  .shuffle,
+  .repeat {
+    @apply cursor-pointer text-cardGrayLight text-sm hover:text-white;
+  }
+
+  .state {
+    @apply cursor-pointer text-3xl hover:text-greenBG;
+  }
+}

@@ -45,7 +45,7 @@ module.exports = {
         3: '14px',
       },
       gridTemplateColumns: {
-        layout: 'auto 130px minmax(320px, 1000px) minmax(200px, 300px) auto',
+        layout: 'auto 180px minmax(320px, 1000px) minmax(200px, 300px) auto',
       },
       gridTemplateRows: {
         layout: 'auto 1fr auto',
