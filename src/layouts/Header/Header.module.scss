@@ -1,7 +1,7 @@
 .header {
   @apply pt-7 flex flex-row justify-between items-center;
   .logo {
-    @apply text-5xl font-semibold font-primary m-0 p-0;
+    @apply text-5xl font-semibold font-primary m-0 p-0 cursor-pointer;
   }
 
   .subscription {

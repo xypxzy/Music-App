@@ -12,7 +12,8 @@ import { Input } from '../../components/Input/Input';
 import styles from './Header.module.scss';
 
 export const Header = ({ ...props }: HeaderProps) => {
-  const [{ token, userInfo }, dispatch] = useStateProvider();
+  const [{ token, userInfo, searchInputCommmit }, dispatch] =
+    useStateProvider();
   useEffect(() => {
     const getUserInfo = async () => {
       const { data } = await axios.get('https://api.spotify.com/v1/me', {
@@ -36,7 +37,18 @@ export const Header = ({ ...props }: HeaderProps) => {
   return (
     <div {...props}>
       <div className={styles.header}>
-        <span className={styles.logo}>m.</span>
+        <span
+          className={styles.logo}
+          onClick={() => {
+            const searchInputCommmit = null;
+            dispatch({
+              type: reducerCases.SET_SEARCHINPUTCOMMIT,
+              searchInputCommmit,
+            });
+          }}
+        >
+          m.
+        </span>
         <Input />
         <span className={styles.subscription}>
           <Button appearance='primary' fonts='base'>

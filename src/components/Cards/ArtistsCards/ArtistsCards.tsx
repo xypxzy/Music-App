@@ -1,30 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ArtistsCards.module.scss';
 import { ISearchArtists } from '../../Search/Search.props';
+
 import { useStateProvider } from '../../../utils/StateProvider';
 
-export const ArtistCards = () => {
-  const [{ searchArtistsInfo }] = useStateProvider();
+import { FaArrowRight, FaArrowDown } from 'react-icons/fa';
+import { CgProfile } from 'react-icons/cg';
 
+export const ArtistCards = () => {
+  const cardFit = Math.floor((window.innerWidth - 96) / 150);
+  const [{ searchArtistsInfo }] = useStateProvider();
+  const [viewCard, setViewCard] = useState(cardFit);
+  const [cardExtends, setCardExtends] = useState(false);
+
+  function entendsCards() {
+    console.log(`extends`);
+    if (cardExtends) {
+      setViewCard(cardFit);
+    } else {
+      setViewCard(searchArtistsInfo.length);
+    }
+    setCardExtends(!cardExtends);
+  }
   return (
-    <div>
-      <h1>Artists : </h1>
-      <ul>
+    <div className={styles.artists}>
+      <span className={styles.header}>
+        <a>Artists : </a>
+        <button onClick={entendsCards}>
+          {!cardExtends ? (
+            <FaArrowRight className={styles.extendBtn} />
+          ) : (
+            <FaArrowDown className={styles.extendBtn} />
+          )}
+        </button>
+      </span>
+      <ul className={styles.cards}>
         {searchArtistsInfo.map(
-          ({ type, id, name, images, genres }: ISearchArtists) => {
+          ({ id, name, images }: ISearchArtists, i: number) => {
             return (
-              <li key={id} className={styles.albumItem}>
-                <img
-                  src={images[0]?.url}
-                  alt='imageAlbums'
-                  className={styles.imageItem}
-                />
-                <span className={styles.albumInfo}>
-                  <h1>{name}</h1>
-                  <h3>{type}</h3>
-                  <p>{genres}</p>
-                </span>
-              </li>
+              <span key={id}>
+                {i < viewCard && (
+                  <li key={id} className={styles.card}>
+                    {images[0]?.url ? (
+                      <img
+                        src={images[0]?.url}
+                        alt='imageAlbums'
+                        className={styles.imageItem}
+                      />
+                    ) : (
+                      <CgProfile className={styles.profile} />
+                    )}
+
+                    <span className={styles.cardInfo}>
+                      <h1>{name}</h1>
+                    </span>
+                  </li>
+                )}
+              </span>
             );
           }
         )}

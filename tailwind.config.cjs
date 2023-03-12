@@ -14,6 +14,7 @@ module.exports = {
       '3xl': '28px',
       '4xl': '32px',
       '5xl': '40px',
+      '6xl': '72px',
     },
 
     colors: {
@@ -25,6 +26,8 @@ module.exports = {
       green: '#CCF04c',
       darkGreen: '#AAD01C',
       greenBG: '#1db954',
+      cardGray: '#181818',
+      cardGrayLight: '#B3B3B3',
     },
     extend: {
       height: {

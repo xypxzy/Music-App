@@ -2,60 +2,87 @@ import React, { useState } from 'react';
 import { useStateProvider } from '../../../utils/StateProvider';
 import { ISearchAlbum } from '../../Search/Search.props';
 
+import { FaArrowRight, FaArrowDown } from 'react-icons/fa';
+
 import styles from './AlbumsCards.module.scss';
 
 export const AlbumsCards = () => {
+  const cardFit = Math.floor((window.innerWidth - 96) / 235);
+
   const [{ searchAlbumsInfo }] = useStateProvider();
-  const [activeCard, setActiveCard] = useState(false);
-  function handleActiveCard() {
-    setActiveCard(!activeCard);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const [viewCard, setViewCard] = useState(cardFit);
+  const [cardExtends, setCardExtends] = useState(false);
+  function handleActiveCard(index: number) {
+    setActiveCardIndex(index);
+  }
+
+
+  function entendsCards() {
+    console.log(`extends`);
+    if (cardExtends) {
+      setViewCard(cardFit);
+    } else {
+      setViewCard(searchAlbumsInfo.length);
+    }
+    setCardExtends(!cardExtends);
   }
   return (
-    <div>
-      <h1>Albums </h1>
-      <ul className={styles.albums}>
-        {searchAlbumsInfo.map(
-          ({
-            type,
-            id,
-            name,
-            artists,
-            images,
-            album_type,
-            release_date,
-            total_tracks,
-          }: ISearchAlbum) => {
-            return (
-              <li
-                key={id}
-                className={styles.albumItem}
-                onClick={handleActiveCard}
-              >
-                <img
-                  src={images[0].url}
-                  alt='imageAlbums'
-                  className={styles.imageItem}
-                />
-                {activeCard && (
-                  <>
-                    <div className={styles.albumInfo}>
-                      <span className={styles.mainInfo}>
+    <div className={styles.slider}>
+      <span className={styles.header}>
+        <a href='#'>Albums</a>
+        <button onClick={entendsCards}>
+          {!cardExtends ? (
+            <FaArrowRight className={styles.extendBtn} />
+          ) : (
+            <FaArrowDown className={styles.extendBtn} />
+          )}
+        </button>
+      </span>
+      <span>
+        <ul className={styles.cards}>
+          {searchAlbumsInfo.map(
+            (
+              {
+                type,
+                id,
+                name,
+                artists,
+                images,
+                album_type,
+                release_date,
+                total_tracks,
+              }: ISearchAlbum,
+              i: number
+            ) => {
+              return (
+                <span key={id}>
+                  {i < viewCard && (
+                    <li
+                      key={id}
+                      className={`${styles.card} ${
+                        activeCardIndex === i ? styles.active : ''
+                      }`}
+                      onMouseEnter={() => handleActiveCard(i)}
+                    >
+                      <img
+                        src={images[0].url}
+                        alt='imageAlbums'
+                        className={styles.imageCard}
+                      />
+
+                      <div className={styles.cardInfo}>
                         <h1>{name}</h1>
                         <h3>{artists[0].name}</h3>
-                      </span>
-                      <span className={styles.secondaryInfo}>
-                        <p>{release_date}</p>
-                        <p>{total_tracks}</p>
-                        {/* <p className={styles.album_type}>{album_type}</p> */}
-                      </span>
-                    </div>
-                  </>
-                )}
-              </li>
-            );
-          }
-        )}
-      </ul>
+                      </div>
+                    </li>
+                  )}
+                </span>
+              );
+            }
+          )}
+        </ul>
+      </span>
     </div>
   );
 };

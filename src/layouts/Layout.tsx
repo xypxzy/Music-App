@@ -12,7 +12,6 @@ import { useStateProvider } from '../utils/StateProvider';
 
 export function Layout(): JSX.Element {
   const [{ searchInputCommmit }] = useStateProvider();
-  console.log(searchInputCommmit);
 
   return (
     <>

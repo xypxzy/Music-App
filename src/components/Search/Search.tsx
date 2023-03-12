@@ -17,7 +17,6 @@ import { TracksCards } from '../Cards/TracksCards/TracksCards';
 
 export const Search = ({ ...props }: SearchProps) => {
   const [{ token, searchInputCommmit }, dispatch] = useStateProvider();
-  const [searchStatus, setSearchStatus] = useState<boolean>(false);
 
   useEffect(() => {
     const getSearchInfo = async () => {
@@ -35,7 +34,6 @@ export const Search = ({ ...props }: SearchProps) => {
       console.log(data);
 
       const { albums, artists, tracks } = data;
-      console.log(albums.items);
 
       const searchAlbumsInfo = albums.items.map(
         ({
@@ -96,7 +94,7 @@ export const Search = ({ ...props }: SearchProps) => {
       <div className={styles.searchedItem}>
         {searchInputCommmit && (
           <>
-            {/* <TracksCards /> */}
+            <TracksCards />
             <AlbumsCards />
             <ArtistCards />
           </>

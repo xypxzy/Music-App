@@ -1,16 +1,52 @@
-.albums {
-  @apply flex flex-wrap gap-5;
+.slider {
+  @apply flex flex-col w-full;
 
-  .albumItem {
-    @apply flex;
-    .imageItem {
-      @apply w-16 h-16 rounded-lg;
+  .header {
+    @apply flex 
+    justify-between items-center px-5 
+    cursor-pointer;
+
+    & a {
+      @apply text-2xl font-extrabold;
     }
-    .albumInfo {
+
+    .extendBtn {
       @apply text-xl;
+
+      &:hover {
+        @apply text-gray;
+        transition-duration: 300ms;
+      }
     }
-    .secondaryInfo {
-      @apply text-sm;
+  }
+
+  .cards {
+    @apply w-full py-3 px-5 flex  flex-wrap gap-5;
+
+    .card {
+      @apply bg-cardGray rounded-lg w-52 h-72
+      flex flex-col items-start justify-center
+      px-4 cursor-pointer;
+
+      & img {
+        @apply w-44 rounded-lg;
+      }
+
+      .cardInfo {
+        @apply pt-4;
+
+        & h1 {
+          @apply text-base font-bold;
+        }
+
+        & h3 {
+          @apply text-sm font-semibold text-cardGrayLight;
+        }
+      }
+
+      &:hover {
+        @apply bg-gray;
+      }
     }
   }
 }

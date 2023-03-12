@@ -1,7 +1,51 @@
-.albumItem {
-  @apply flex items-center justify-start;
+.artists {
+  @apply py-3 px-5;
 
-  .imageItem {
-    @apply w-16 h-16 rounded-lg;
+  .header {
+    @apply flex 
+    justify-between items-center 
+    cursor-pointer;
+
+    & a {
+      @apply text-2xl font-extrabold;
+    }
+
+    .extendBtn {
+      @apply text-xl;
+
+      &:hover {
+        @apply text-gray;
+        transition-duration: 300ms;
+      }
+    }
+  }
+
+  .cards {
+    @apply w-full  flex flex-wrap gap-5;
+
+    .card {
+      @apply bg-cardGray rounded-lg w-32 h-44
+      flex flex-col items-start justify-center
+      px-4 cursor-pointer;
+
+      & img {
+        @apply w-24 h-24 rounded-full;
+      }
+      .profile {
+        @apply text-6xl;
+      }
+
+      .cardInfo {
+        @apply pt-4;
+
+        & h1 {
+          @apply text-base font-bold;
+        }
+      }
+
+      &:hover {
+        @apply bg-gray;
+      }
+    }
   }
 }
